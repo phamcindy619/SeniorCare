@@ -30,10 +30,6 @@ def signup():
     #     return {'message': 'ERROR: Cannot create user'}, 400
     return render_template("signup.html")
 
-@app.route('/login')
-def login():
-    return render_template("login.html")
-
 @app.route('/profiles')
 def profiles():
     # profile = []
@@ -44,7 +40,8 @@ def profiles():
     # for doc in caregivers:
     #     profile.append(doc.to_dict())
     # return jsonify(profile)
-    return render_template("profiles.html")
+    user = db.collection(u'seniors').document(u'8EOeauhy8ZiDzvd8tTbu').get()
+    return render_template("profiles.html", user=user.to_dict())
 
 @app.route('/messages')
 def messages():

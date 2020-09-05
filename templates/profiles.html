@@ -42,8 +42,8 @@
         <div class="card text-center">
             <img class="card-img-top" src="" alt="Profile image">
             <div class="card-body">
-                <h5 class="card-title">Name</h5>
-                <p class="card-text">The bio goes here.</p>
+                <h5 class="card-title">{{user.name}}</h5>
+                <p class="card-text">{{user.bio}}</p>
                 <a href="#" class="btn btn-danger">NO</a>
                 <a href="#" class="btn btn-success">YES</a>
             </div>
@@ -56,10 +56,9 @@
                 <div class="col-4 offset-1 col-sm-2">
                     <h5>Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Menu</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href={{ url_for('home') }}>Home</a></li>
+                        <li><a href="#">Profiles</a></li>
+                        <li><a href={{ url_for('messages') }}>Messages</a></li>
                     </ul>
                 </div>
                 <div class="col-7 col-sm-5">
@@ -92,7 +91,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    <p>© Copyright 2018 Ristorante Con Fusion</p>
+                    <p>© Copyright 2020 Phamily Health</p>
                 </div>
             </div>
         </div>

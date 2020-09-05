@@ -94,7 +94,7 @@
                     <img src="img/logo.png" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm align-self-center" id="signupButton">
-                    <a role="button" class="btn btn-warning nav-link btn-block">Sign Up</a>
+                    <a role="button" class="btn btn-warning nav-link btn-block" href={{ url_for('signup') }}>Sign Up</a>
                 </div>
             </div>
         </div>
@@ -109,13 +109,10 @@
                             <img class="d-block img-fluid" src="img/uthappizza.png"
                                 alt="uthapizza">
                             <div class="carousel-caption d-none d-md-block">
-                                <h2>Uthappizza <span class="badge badge-danger">HOT</span> <span
-                                        class="badge badge-pill badge-secondary">$4.99</span></h2>
-                                <p class="d-none d-sm-block">A unique combination of Indian Uthappam (pancake) and Italian
-                                    pizza,
-                                    topped
-                                    with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo
-                                    Paneer.
+                                <h2>Uthappizza </h2>
+                                <p class="d-none d-sm-block">This is some chicken text. There are caregivers and
+                                    there are old people that we gotta take care of before they dead. Put em in the
+                                    nursing home? NO NO.
                                 </p>
                             </div>
                         </div>
@@ -232,9 +229,8 @@
                     <h5>Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Menu</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href={{ url_for('profiles') }}>Profiles</a></li>
+                        <li><a href={{ url_for('messages') }}>Messages</a></li>
                     </ul>
                 </div>
                 <div class="col-7 col-sm-5">
@@ -267,7 +263,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    <p>© Copyright 2018 Ristorante Con Fusion</p>
+                    <p>© Copyright 2020 Phamily Health</p>
                 </div>
             </div>
         </div>
