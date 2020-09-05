@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'This is the home page.'
+    return render_template("index.html")
 
 # @app.route('/signup')
 # def signup():
@@ -37,14 +37,15 @@ def home():
 
 @app.route('/profiles')
 def profiles():
-    profile = []
-    seniors = db.collection(u'seniors').stream()
-    for doc in seniors:
-        profile.append(doc.to_dict())
-    caregivers = db.collection(u'caregivers').stream()
-    for doc in caregivers:
-        profile.append(doc.to_dict())
-    return jsonify(profile)
+    # profile = []
+    # seniors = db.collection(u'seniors').stream()
+    # for doc in seniors:
+    #     profile.append(doc.to_dict())
+    # caregivers = db.collection(u'caregivers').stream()
+    # for doc in caregivers:
+    #     profile.append(doc.to_dict())
+    # return jsonify(profile)
+    return render_template("profiles.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
