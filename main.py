@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, json
+from flask import Flask, render_template, request, jsonify
 import firebase_admin
 from firebase_admin import credentials, auth
 from firebase_admin import firestore
@@ -23,11 +23,14 @@ def login():
 
 @app.route('/profiles')
 def profiles():
-    profiles = []
-    docs = db.collection(u'seniors').stream()
-    for doc in docs:
-        profiles.append(json.loads(doc))
-    return json.dumps(profiles)
+    profile = []
+    seniors = db.collection(u'seniors').stream()
+    for doc in seniors:
+        profile.append(doc.to_dict())
+    caregivers = db.collection(u'caregivers').stream()
+    for doc in caregivers:
+        profile.append(doc.to_dict())
+    return jsonify(profile)
 
 if __name__ == "__main__":
     app.run(debug=True)
