@@ -13,27 +13,26 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-# @app.route('/signup')
-# def signup():
-#     email = request.form.get('email')
-#     password = request.form.get('password')
-#     # Input validation
-#     if email is None or password is None:
-#         return {'message': 'ERROR: Missing email or password'}
-#     try:
-#         user = auth.create_user(
-#             email=email,
-#             password=password
-#         )
-#         return {'message': f'Welcome {user.email}'}, 200
-#     except:
-#         return {'message': 'ERROR: Cannot create user'}, 400
+@app.route('/signup')
+def signup():
+    # email = request.form.get('email')
+    # password = request.form.get('password')
+    # # Input validation
+    # if email is None or password is None:
+    #     return {'message': 'ERROR: Missing email or password'}
+    # try:
+    #     user = auth.create_user(
+    #         email=email,
+    #         password=password
+    #     )
+    #     return {'message': f'Welcome {user.email}'}, 200
+    # except:
+    #     return {'message': 'ERROR: Cannot create user'}, 400
+    return render_template("signup.html")
 
-# @app.route('/login')
-# def login():
-#     email = request.args.get('email')
-#     password = request.args.get('password')
-#     return {'email': email, 'password': password}
+@app.route('/login')
+def login():
+    return render_template("login.html")
 
 @app.route('/profiles')
 def profiles():
@@ -46,6 +45,10 @@ def profiles():
     #     profile.append(doc.to_dict())
     # return jsonify(profile)
     return render_template("profiles.html")
+
+@app.route('/messages')
+def messages():
+    return render_template("messages.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
