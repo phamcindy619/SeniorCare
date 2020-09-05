@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 import firebase_admin
-from firebase_admin import credentials, auth
+# from firebase_admin import auth
 from firebase_admin import firestore
 
 # Set up Firebase
-default_app = firebase_admin.initialize_app()
+firebase = firebase_admin.initialize_app()
 db = firestore.client()
 
 app = Flask(__name__)
@@ -13,13 +13,27 @@ app = Flask(__name__)
 def home():
     return 'This is the home page.'
 
-@app.route('/signup')
-def signup():
-    return 'Please sign up.'
+# @app.route('/signup')
+# def signup():
+#     email = request.form.get('email')
+#     password = request.form.get('password')
+#     # Input validation
+#     if email is None or password is None:
+#         return {'message': 'ERROR: Missing email or password'}
+#     try:
+#         user = auth.create_user(
+#             email=email,
+#             password=password
+#         )
+#         return {'message': f'Welcome {user.email}'}, 200
+#     except:
+#         return {'message': 'ERROR: Cannot create user'}, 400
 
-@app.route('/login')
-def login():
-    return 'Please login.'
+# @app.route('/login')
+# def login():
+#     email = request.args.get('email')
+#     password = request.args.get('password')
+#     return {'email': email, 'password': password}
 
 @app.route('/profiles')
 def profiles():
